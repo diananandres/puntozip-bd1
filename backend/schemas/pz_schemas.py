@@ -140,7 +140,7 @@ class Pedido(BaseModel):
     fecha_entrega: Optional[date] = None
     cliente_rin: str = Field(..., max_length=7)
 
-    @field_validator('fecha_entrega_propuesta', 'fecha_entrega', pre=True)
+    @field_validator('fecha_entrega_propuesta', 'fecha_entrega')
     def validar_fechas(cls, value, values, field):
         if 'fecha_pedido' in values and value is not None and value <= values['fecha_pedido']:
             raise ValueError(f'{field.name} debe ser posterior a fecha_pedido')
