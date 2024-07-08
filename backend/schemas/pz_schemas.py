@@ -320,5 +320,5 @@ class Talla(BaseModel):
     class Config:
         from_attributes = True
 
-class Talla(Talla):
+class TallaResponse(Talla):
     pass
